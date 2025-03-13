@@ -33,20 +33,16 @@ window.add_object(display_text)
 
 while window.is_running:
     x, y = tsapp.get_mouse_position()
-    
     if tsapp.was_mouse_pressed() and up_button.is_colliding_point(x, y) and pages > 0:
         counter -= 20
         screen = change_page()
         pages -= 1
-        
     if tsapp.was_mouse_pressed() and reset_button.is_colliding_point(x, y):
         counter = 0
         screen = change_page()
         pages = 0
-        
     if tsapp.was_mouse_pressed() and down_button.is_colliding_point(x, y):
         counter += 20
         screen = change_page()
         pages += 1
-
     window.finish_frame()
